@@ -3,8 +3,7 @@ import mongoose, { Mongoose } from "mongoose";
 const MONGODB_URI = process.env.MONGODB_URI!;
 
 if(!MONGODB_URI){
-    throw new Error("Please define mongodb uri in env file");
-    
+    throw new Error("Please define mongodb uri in env file"); 
 }
 
 let cached = global.mongoose;
@@ -22,7 +21,7 @@ export async function connectToDatabase() {
     if(!cached.promise){
         const opts = {
             bufferCommands: true,
-            maxPoolSize: 10
+            maxPoolSize: 10 // maximum number of connections allowed in the connection pool for a given MongoDB instance
         }
         cached.promise = mongoose.connect(MONGODB_URI, opts).then(() => mongoose.connection)
     }
