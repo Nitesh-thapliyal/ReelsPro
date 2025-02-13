@@ -1,3 +1,17 @@
+/**
+ * Steps: 
+ * 1. define auth datatype: next-auth.d.ts
+ * 2. create NextAuthOption in our case this current file inside it:
+ *  - create providers : which has CrendentialsPRovider: that further has credentials and authorize
+ *  - callbacks: jwt: sessions
+ *  - pages
+ *  - session : strategy: jwt, maxAge
+ *  - secret
+ * 3. create route [...nextauth] : create handler inside it and export it as get or post
+ * 4. create register
+ * 5. create middlewware: withAuth: which control which route path are eligible for auth
+ */
+
 import User from "@/models/User";
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
